@@ -1,6 +1,6 @@
 {
   "name": "bbox-aspect-ratio",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "get aspect ratio from bounding box",
   "main": "dist/index.js",
   "source": "src/index.ts",
@@ -14,12 +14,11 @@
   "author": "Harsh Zalavadiya <harsh@foobars.in> (twitter: @zhnebula)",
   "license": "MIT",
   "devDependencies": {
+    "@turf/turf": "^5.1.6",
     "@types/jest": "^24.0.15",
     "jest": "^24.8.0",
     "microbundle": "^0.11.0",
     "ts-jest": "^24.0.2"
   },
-  "dependencies": {
-    "@turf/turf": "^5.1.6"
-  }
+  "dependencies": {}
 }
