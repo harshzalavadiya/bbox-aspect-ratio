@@ -1,5 +1,6 @@
-import { BBox } from "@turf/helpers";
-import { bboxPolygon, distance, point } from "@turf/turf";
+import { BBox, point } from "@turf/helpers";
+import bboxPolygon from "@turf/bbox-polygon";
+import distance from "@turf/distance";
 
 import aspectRatio from "./aspect-ratio";
 

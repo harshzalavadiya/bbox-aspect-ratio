@@ -1,6 +1,6 @@
 {
   "name": "bbox-aspect-ratio",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "get aspect ratio from bounding box",
   "main": "dist/index.js",
   "source": "src/index.ts",
