@@ -1,15 +1,17 @@
 {
   "name": "bbox-aspect-ratio",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "get aspect ratio from bounding box",
   "main": "dist/index.js",
-  "source": "src/index.ts",
-  "types": "dist/index.d.ts",
+  "typings": "dist/index.d.ts",
   "repository": "harshzalavadiya/bbox-aspect-ratio",
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "test": "jest",
-    "dev": "microbundle watch --format cjs",
-    "build": "microbundle --format cjs"
+    "test": "jest --config=jest.json",
+    "dev": "microbundle watch",
+    "build": "microbundle"
   },
   "author": "Harsh Zalavadiya <harsh@foobars.in> (twitter: @zhnebula)",
   "license": "MIT",

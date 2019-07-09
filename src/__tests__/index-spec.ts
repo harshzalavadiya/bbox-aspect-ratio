@@ -1,4 +1,4 @@
-import bBoxAspectRatio, { calculateSizeFromAspectRatio } from ".";
+import { bBoxAspectRatio, calculateSize } from "..";
 
 test("Bounding Box Aspect Ratio", () => {
   const aspectRatio = bBoxAspectRatio([73.91, 25.91, 83.8, 21.49]);
@@ -17,7 +17,7 @@ test("Bounding Box Aspect Ratio", () => {
 
 test("Height from Aspect Ratio", () => {
   const aspectRatio = bBoxAspectRatio([73.91, 25.91, 83.8, 21.49]);
-  const aspectRatioHeight = calculateSizeFromAspectRatio(aspectRatio, 80);
+  const aspectRatioHeight = calculateSize(aspectRatio, 80);
   expect(aspectRatioHeight).toBe(40);
 });
 
@@ -28,6 +28,6 @@ test("Height from Aspect Ratio", () => {
     80.463867187,
     17.476432197
   ]);
-  const aspectRatioHeight = calculateSizeFromAspectRatio(aspectRatio, 50);
+  const aspectRatioHeight = calculateSize(aspectRatio, 50);
   expect(aspectRatioHeight).toEqual(25);
 });
