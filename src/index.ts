@@ -1,17 +1,15 @@
-import bboxPolygon from "@turf/bbox-polygon";
-import distance from "@turf/distance";
-import { BBox, point } from "@turf/helpers";
+import { calculateAspectRatio } from "./aspect-ratio";
+import { absoluteDistance, normalizeBBox } from "./geo";
 
-import aspectRatio from "./aspect-ratio";
+export const bBoxAspectRatio = (
+  rawbbox: [number, number, number, number]
+): [number, number] => {
+  const bbox = normalizeBBox(rawbbox);
 
-export const bBoxAspectRatio = (bbox: BBox): [number, number] => {
-  const _bboxPolygon = bboxPolygon(bbox);
-  const _coordinates = _bboxPolygon.geometry.coordinates[0];
+  const _width = absoluteDistance(bbox[0], bbox[2]);
+  const _height = absoluteDistance(bbox[1], bbox[3]);
 
-  var _height = distance(point(_coordinates[0]), point(_coordinates[3]));
-  var _width = distance(point(_coordinates[0]), point(_coordinates[1]));
-
-  return aspectRatio(Math.ceil(_width), Math.ceil(_height));
+  return calculateAspectRatio(_width, _height);
 };
 
 export const calculateSize = (aspectRatio: [number, number], width: number) => {
