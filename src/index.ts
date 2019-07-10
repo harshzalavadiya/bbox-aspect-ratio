@@ -1,6 +1,11 @@
 import { calculateAspectRatio } from "./aspect-ratio";
 import { absoluteDistance, normalizeBBox } from "./geo";
 
+export enum SizeType {
+  Width,
+  Height
+}
+
 export const bBoxAspectRatio = (
   rawbbox: [number, number, number, number]
 ): [number, number] => {
@@ -12,6 +17,14 @@ export const bBoxAspectRatio = (
   return calculateAspectRatio(_width, _height);
 };
 
-export const calculateSize = (aspectRatio: [number, number], width: number) => {
-  return Math.ceil((aspectRatio[1] * width) / aspectRatio[0]);
+export const calculateSize = (
+  aspectRatio: [number, number],
+  size: number,
+  type: SizeType = SizeType.Width
+) => {
+  return Math.ceil(
+    type === SizeType.Width
+      ? (aspectRatio[1] * size) / aspectRatio[0]
+      : (aspectRatio[0] * size) / aspectRatio[1]
+  );
 };

@@ -1,1 +1,1 @@
-export { bBoxAspectRatio, calculateSize } from "./src/";
+export { bBoxAspectRatio, calculateSize, SizeType } from "./src/";

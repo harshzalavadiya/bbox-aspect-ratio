@@ -1,6 +1,6 @@
 {
   "name": "bbox-aspect-ratio",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "get aspect ratio from bounding box",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -9,7 +9,7 @@
     "dist"
   ],
   "scripts": {
-    "test": "jest --config=jest.json",
+    "test": "jest --watch --config=jest.json",
     "coverage": "jest --coverage --config=jest.json",
     "dev": "microbundle watch",
     "build": "microbundle"

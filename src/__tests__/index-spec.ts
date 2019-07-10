@@ -1,33 +1,28 @@
-import { bBoxAspectRatio, calculateSize } from "..";
+import { bBoxAspectRatio, calculateSize, SizeType } from "..";
 
-test("Bounding Box Aspect Ratio", () => {
-  const aspectRatio = bBoxAspectRatio([73.91, 25.91, 83.8, 21.49]);
-  expect(aspectRatio).toEqual([989, 442]);
+test("Test Case 1", () => {
+  const aspectRatio = bBoxAspectRatio([76.20742, 11.59426, 76.86794, 11.95073]);
+  expect(aspectRatio).toEqual([1321, 713]);
+
+  const sizeByWidth = calculateSize(aspectRatio, 50, SizeType.Width);
+  expect(sizeByWidth).toEqual(27);
+
+  const sizeByHeight = calculateSize(aspectRatio, 50, SizeType.Height);
+  expect(sizeByHeight).toEqual(93);
 });
 
-test("Bounding Box Aspect Ratio", () => {
+test("Test Case 2", () => {
   const aspectRatio = bBoxAspectRatio([
     74.619140625,
     28.149503211,
     80.463867187,
     17.476432197
   ]);
-  expect(aspectRatio).toEqual([106731, 58447]);
-});
+  expect(aspectRatio).toEqual([58447, 106731]);
 
-test("Height from Aspect Ratio", () => {
-  const aspectRatio = bBoxAspectRatio([73.91, 25.91, 83.8, 21.49]);
-  const aspectRatioHeight = calculateSize(aspectRatio, 80);
-  expect(aspectRatioHeight).toBe(36);
-});
+  const sizeByWidth = calculateSize(aspectRatio, 50, SizeType.Width);
+  expect(sizeByWidth).toEqual(92);
 
-test("Height from Aspect Ratio", () => {
-  const aspectRatio = bBoxAspectRatio([
-    74.619140625,
-    28.149503211,
-    80.463867187,
-    17.476432197
-  ]);
-  const aspectRatioHeight = calculateSize(aspectRatio, 50);
-  expect(aspectRatioHeight).toEqual(28);
+  const sizeByHeight = calculateSize(aspectRatio, 50, SizeType.Height);
+  expect(sizeByHeight).toEqual(28);
 });

@@ -11,11 +11,19 @@ npm i bbox-aspect-ratio
 ## 📦 Usage
 
 ```javascript
-import { bBoxAspectRatio, calculateSize } from "bbox-aspect-ratio";
+import { bBoxAspectRatio, calculateSize, SizeType } from "bbox-aspect-ratio";
 
 // Get aspect ratio
-const aspectRatio = bBoxAspectRatio([73.91, 25.91, 83.8, 21.49]); // [989, 492]
+const topRight = [76.20742, 11.59426];
+const bottomLeft = [76.86794, 11.95073];
+const aspectRatio = bBoxAspectRatio([...topRight, ...bottomLeft]);
+console.log(aspectRatio); // [1321, 713]
 
-// Determine height/width keeping aspect ratio
-const aspectRatioHeight = calculateSize(aspectRatio, 80); // 40 → 80x40
+// Calculate size by width
+const sizeByWidth = calculateSize(aspectRatio, 50, SizeType.Width);
+console.log(sizeByWidth); // 27 → w: 50, h: 27
+
+// Calculate size by height
+const sizeByHeight = calculateSize(aspectRatio, 50, SizeType.Height);
+console.log(sizeByWidth); // 93 → w: 93, h: 50
 ```
